@@ -1,8 +1,7 @@
 package com.example.uniparking.ui.adapter
 
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import com.example.uniparking.R
 import com.example.uniparking.data.db.entity.Stay
@@ -29,18 +28,42 @@ class ParkedVehiclesAdapter(val eventListener: OnItemEventsListener) : RecyclerV
         holder.bind(items[position])
     }
 
-    inner class ViewHolder(val view : View) : RecyclerView.ViewHolder(view) {
+    inner class ViewHolder(val view : View) : RecyclerView.ViewHolder(view), PopupMenu.OnMenuItemClickListener {
 
         init {
             view.btnRegisterCheckOut.setOnClickListener {
                 eventListener.onRegisterCheckOutTime(items[adapterPosition])
             }
-
+            view.btnOptions.setOnClickListener {
+                showPopup(it)
+            }
         }
 
         fun bind(stay: Stay) {
             view.txtLicense.text = stay.vehicleLicensePlate
             view.txtCheckInTime.text = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault()).format(stay.checkInTime)
+        }
+
+        private fun showPopup(v: View) {
+            val popup = PopupMenu(view.context, v)
+            popup.setOnMenuItemClickListener(this@ViewHolder)
+            val inflater: MenuInflater = popup.menuInflater
+            inflater.inflate(R.menu.menu_parked_items, popup.menu)
+            popup.show()
+        }
+
+        override fun onMenuItemClick(item: MenuItem?): Boolean {
+            return when(item?.itemId) {
+                R.id.menu_save_official -> {
+                    eventListener.onSaveAsOfficial(items[0].vehicleLicensePlate)
+                    true
+                }
+                R.id.menu_save_resident -> {
+                    eventListener.onSaveAsResident(items[0].vehicleLicensePlate)
+                    true
+                }
+                else -> false
+            }
         }
     }
 

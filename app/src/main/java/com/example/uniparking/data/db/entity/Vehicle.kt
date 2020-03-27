@@ -7,5 +7,6 @@ import androidx.room.PrimaryKey
 data class Vehicle (
     @PrimaryKey var licensePlate : String,
     var type : VehicleType = VehicleType.EXTERNAL,
-    var phoneNumber : String? = null
+    var phoneNumber : String? = null,
+    var accumulatedTime : Int = 0
 )

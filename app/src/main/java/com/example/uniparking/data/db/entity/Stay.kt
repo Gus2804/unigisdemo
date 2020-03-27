@@ -12,8 +12,8 @@ data class Stay (
     var checkOutTime: Date
 ) {
 
-    fun getStayTime() : Long {
-        return (checkOutTime.time - checkInTime.time)/(1000 * 60)
+    fun getStayTime() : Int {
+        return (checkOutTime.time - checkInTime.time).toInt()/(1000 * 60)
     }
 
 }

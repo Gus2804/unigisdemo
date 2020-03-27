@@ -1,10 +1,7 @@
 package com.example.uniparking.data.db.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.uniparking.data.db.entity.Vehicle
 import com.example.uniparking.data.db.entity.VehicleType
 
@@ -13,6 +10,9 @@ interface VehicleDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun saveVehicle(vehicle: Vehicle)
+
+    @Update
+    fun updateVehicle(vehicle: Vehicle)
 
     @Query("SELECT * FROM vehicles WHERE type = :type")
     fun getVehiclesByType(type : VehicleType) : LiveData<List<Vehicle>>

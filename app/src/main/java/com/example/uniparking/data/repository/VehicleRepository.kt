@@ -26,4 +26,10 @@ constructor(val vehicleDao : VehicleDao){
         }
     }
 
+    fun updateVehicle(vehicle: Vehicle) {
+        AsyncTask.execute {
+            vehicleDao.updateVehicle(vehicle)
+        }
+    }
+
 }

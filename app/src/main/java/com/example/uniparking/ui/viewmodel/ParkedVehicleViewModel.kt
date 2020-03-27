@@ -61,9 +61,22 @@ constructor(val stayRepository: StayRepository, val vehicleRepository: VehicleRe
                 val vehicle = it[0]
                 if(vehicle.type == VehicleType.EXTERNAL) {
                     amount.value = "Por cobrar $%.2f".format(0.5 * stay.getStayTime())
+                } else if(vehicle.type == VehicleType.RESIDENT) {
+                    vehicle.accumulatedTime += stay.getStayTime()
+                    vehicleRepository.updateVehicle(vehicle)
                 }
             }
         }
+    }
+
+    fun saveVehicleAsOfficial(license : String) {
+        val vehicle = Vehicle(license, type = VehicleType.OFFICIAL)
+        vehicleRepository.updateVehicle(vehicle)
+    }
+
+    fun saveVehicleAsResident(license : String, phone : String) {
+        val vehicle = Vehicle(license, type = VehicleType.RESIDENT, phoneNumber = phone)
+        vehicleRepository.updateVehicle(vehicle)
     }
 
 }

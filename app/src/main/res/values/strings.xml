@@ -11,5 +11,10 @@
     <string name="btn_cancel">Cancelar</string>
     <string name="title_new_check_in_time">Registrar entrada</string>
     <string name="title_out">Salida</string>
+    <string name="title_save_resident">Guardar residente</string>
+    <string name="menu_save_as_resident">Guardar como residente</string>
+    <string name="menu_save_as_official">Guardar como oficial</string>
+    <string name="menu_residents">Vehículos residentes</string>
+    <string name="menu_officials">Vehículos oficiales</string>
 
 </resources>

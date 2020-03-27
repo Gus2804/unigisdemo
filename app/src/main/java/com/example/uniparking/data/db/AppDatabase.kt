@@ -8,7 +8,7 @@ import com.example.uniparking.data.db.dao.VehicleDao
 import com.example.uniparking.data.db.entity.Stay
 import com.example.uniparking.data.db.entity.Vehicle
 
-@Database(entities = [Stay::class, Vehicle::class], version = 1)
+@Database(entities = [Stay::class, Vehicle::class], version = 2)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun stayDao() : StayDao
