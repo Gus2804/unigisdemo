@@ -2,6 +2,8 @@
     <string name="app_name">UniParking</string>
 
     <string name="title_parked">Vehículos estacionados</string>
+    <string name="title_official">Vehículos oficiales</string>
+    <string name="title_resident">Vehículos residentes</string>
     <string name="btn_register_check_in_time">Registrar entrada</string>
     <string name="btn_register_check_our_time">Registrar salida</string>
 
@@ -16,5 +18,20 @@
     <string name="menu_save_as_official">Guardar como oficial</string>
     <string name="menu_residents">Vehículos residentes</string>
     <string name="menu_officials">Vehículos oficiales</string>
+
+    <string name="template_phone">Teléfono: %s</string>
+    <string name="template_time">Tiempo acumulado: %d min</string>
+    <string name="template_total">Total actual: %s</string>
+    <string name="template_visits">Visitas: %s</string>ç
+    <string name="template_message">Placa del vehículo: %s\nTiempo acumulado: %s\nTotal: $%.2f</string>
+
+    <plurals name="template_minutes">
+        <item quantity="one">%d minuto</item>
+        <item quantity="other">%d minutos</item>
+    </plurals>
+    <plurals name="template_hous">
+        <item quantity="one">%d hora</item>
+        <item quantity="other">%d horas</item>
+    </plurals>
 
 </resources>

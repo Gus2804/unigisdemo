@@ -9,7 +9,7 @@ data class VehicleWithStays(
     @Embedded val vehicle: Vehicle,
     @Relation(
         parentColumn = "licensePlate",
-        entityColumn = "vehicleNumber"
+        entityColumn = "vehicleLicensePlate"
     )
     val stays: List<Stay>
 )

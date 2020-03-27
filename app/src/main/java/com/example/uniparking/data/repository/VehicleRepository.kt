@@ -5,6 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.uniparking.data.db.dao.VehicleDao
 import com.example.uniparking.data.db.entity.Vehicle
+import com.example.uniparking.data.db.entity.VehicleType
+import com.example.uniparking.data.db.relations.VehicleWithStays
 import javax.inject.Inject
 
 class VehicleRepository
@@ -30,6 +32,10 @@ constructor(val vehicleDao : VehicleDao){
         AsyncTask.execute {
             vehicleDao.updateVehicle(vehicle)
         }
+    }
+
+    fun getVehiclesByType(vehicleType: VehicleType) : LiveData<List<VehicleWithStays>> {
+        return vehicleDao.getVehiclesByType(vehicleType)
     }
 
 }

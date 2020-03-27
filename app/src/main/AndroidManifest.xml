@@ -23,6 +23,8 @@
 
         <activity android:name=".ui.activity.ParkedVehiclesActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".ui.activity.ResidentsActivity" />
+        <activity android:name=".ui.activity.OfficialsActivity" />
 
     </application>
 </manifest>

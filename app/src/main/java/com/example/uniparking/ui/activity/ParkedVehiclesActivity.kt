@@ -2,6 +2,8 @@ package com.example.uniparking.ui.activity
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
@@ -10,6 +12,7 @@ import com.example.uniparking.R
 import com.example.uniparking.data.db.entity.Stay
 import com.example.uniparking.ui.adapter.ParkedVehiclesAdapter
 import com.example.uniparking.ui.viewmodel.ParkedVehicleViewModel
+import com.example.uniparking.utils.goToActivity
 import com.example.uniparking.utils.hideKeyboard
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_parked.*
@@ -27,6 +30,8 @@ class ParkedVehiclesActivity: DaggerAppCompatActivity(), ParkedVehiclesAdapter.O
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_parked)
+
+        setSupportActionBar(toolbar)
 
         rvVehicles.adapter = ParkedVehiclesAdapter(this)
         rvVehicles.layoutManager = LinearLayoutManager(this)
@@ -65,6 +70,25 @@ class ParkedVehiclesActivity: DaggerAppCompatActivity(), ParkedVehiclesAdapter.O
         })
 
         viewModel.prepareObservers(this)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_parked, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.menu_residents -> {
+                goToActivity(ResidentsActivity::class.java)
+                true
+            }
+            R.id.menu_officials -> {
+                goToActivity(OfficialsActivity::class.java)
+                true
+            }
+            else -> false
+        }
     }
 
     override fun onRegisterCheckOutTime(stay: Stay) {
