@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">UniParking</string>
+
+    <string name="title_parked">Vehículos estacionados</string>
+    <string name="btn_register_check_in_time">Registrar entrada</string>
+    <string name="btn_register_check_our_time">Registrar salida</string>
+
+    <string name="hint_plate">Número de placa</string>
+    <string name="hint_phone">Teléfono</string>
+    <string name="btn_save">Guardar</string>
+    <string name="btn_cancel">Cancelar</string>
+    <string name="title_new_check_in_time">Registrar entrada</string>
+    <string name="title_out">Salida</string>
+
+</resources>
