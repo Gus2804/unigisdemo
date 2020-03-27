@@ -1,5 +1,6 @@
 package com.example.uniparking.di.modules
 
+import com.example.uniparking.ui.activity.OfficialsActivity
 import com.example.uniparking.ui.activity.ParkedVehiclesActivity
 import com.example.uniparking.ui.activity.ResidentsActivity
 import dagger.Module
@@ -13,5 +14,8 @@ abstract class ActivityModule {
 
     @ContributesAndroidInjector
     abstract fun contributeResidentsActivity() : ResidentsActivity
+
+    @ContributesAndroidInjector
+    abstract fun contributeOfficialsActivity() : OfficialsActivity
 
 }

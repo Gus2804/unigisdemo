@@ -22,19 +22,20 @@ class ResidentsAdapter(private val onItemClickListener: OnItemClickListener) : R
         init {
             view.setOnClickListener {
                 val vehicle = items[adapterPosition].vehicle
-                onItemClickListener.onItemClick(
-                    vehicle,
-                    vehicle.accumulatedTime * 0.05
-                )
+                if(vehicle.accumulatedTime>0) {
+                    onItemClickListener.onItemClick(
+                        vehicle,
+                        vehicle.accumulatedTime * 0.05
+                    )
+                }
             }
         }
 
         fun bind(vehicle : VehicleWithStays) {
-            val vehicle = items[adapterPosition].vehicle
-            view.txtLicense.text = vehicle.licensePlate
-            view.txtPhone.text = view.context.getString(R.string.template_phone, vehicle.phoneNumber)
-            view.txtAccumulatedTime.text = view.context.getString(R.string.template_time, vehicle.accumulatedTime)
-            view.txtCurrentTotal.text = view.context.getString(R.string.template_total, "%.2f".format(vehicle.accumulatedTime * 0.05))
+            view.txtLicense.text = vehicle.vehicle.licensePlate
+            view.txtPhone.text = view.context.getString(R.string.template_phone, vehicle.vehicle.phoneNumber)
+            view.txtAccumulatedTime.text = view.context.getString(R.string.template_time, vehicle.vehicle.accumulatedTime)
+            view.txtCurrentTotal.text = view.context.getString(R.string.template_total, "%.2f".format(vehicle.vehicle.accumulatedTime * 0.05))
         }
     }
 

@@ -25,7 +25,7 @@
         tools:listitem="@layout/item_vehicle_official"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnCheckIn"
+        android:id="@+id/btnAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/background_accent_button"

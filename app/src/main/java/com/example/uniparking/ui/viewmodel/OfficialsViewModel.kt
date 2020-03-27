@@ -6,15 +6,15 @@ import com.example.uniparking.data.db.entity.VehicleType
 import com.example.uniparking.data.repository.VehicleRepository
 import javax.inject.Inject
 
-class ResidentsViewModel
+class OfficialsViewModel
 @Inject
 constructor(val vehicleRepository: VehicleRepository) : ViewModel() {
 
-    fun saveResident(license: String, phone: String) {
-        val vehicle = Vehicle(license, type = VehicleType.RESIDENT, phoneNumber = phone)
+    fun saveOfficial(license: String) {
+        val vehicle = Vehicle(license, type = VehicleType.OFFICIAL)
         vehicleRepository.saveVehicle(vehicle)
     }
 
-    val vehicles = vehicleRepository.getVehiclesByType(VehicleType.RESIDENT)
+    val vehicles = vehicleRepository.getVehiclesByType(VehicleType.OFFICIAL)
 
 }

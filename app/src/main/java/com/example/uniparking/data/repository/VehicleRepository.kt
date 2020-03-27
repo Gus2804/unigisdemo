@@ -21,10 +21,10 @@ constructor(val vehicleDao : VehicleDao){
         }
     }
 
-    fun saveVehicle(vehicle: Vehicle, saved : MutableLiveData<String>) {
+    fun saveVehicle(vehicle: Vehicle, saved : MutableLiveData<String>? = null) {
         AsyncTask.execute {
             vehicleDao.saveVehicle(vehicle)
-            saved.postValue(vehicle.licensePlate)
+            saved?.postValue(vehicle.licensePlate)
         }
     }
 

@@ -22,7 +22,7 @@
     <string name="template_phone">Teléfono: %s</string>
     <string name="template_time">Tiempo acumulado: %d min</string>
     <string name="template_total">Total actual: %s</string>
-    <string name="template_visits">Visitas: %s</string>ç
+    <string name="template_visits">Visitas: %d</string>
     <string name="template_message">Placa del vehículo: %s\nTiempo acumulado: %s\nTotal: $%.2f</string>
 
     <plurals name="template_minutes">

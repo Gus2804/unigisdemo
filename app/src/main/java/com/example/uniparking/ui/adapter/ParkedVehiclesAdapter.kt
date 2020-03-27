@@ -55,11 +55,11 @@ class ParkedVehiclesAdapter(val eventListener: OnItemEventsListener) : RecyclerV
         override fun onMenuItemClick(item: MenuItem?): Boolean {
             return when(item?.itemId) {
                 R.id.menu_save_official -> {
-                    eventListener.onSaveAsOfficial(items[0].vehicleLicensePlate)
+                    eventListener.onSaveAsOfficial(items[adapterPosition].vehicleLicensePlate)
                     true
                 }
                 R.id.menu_save_resident -> {
-                    eventListener.onSaveAsResident(items[0].vehicleLicensePlate)
+                    eventListener.onSaveAsResident(items[adapterPosition].vehicleLicensePlate)
                     true
                 }
                 else -> false
